@@ -1,0 +1,13 @@
+
+more work on exceptions and error handling, and also testing of
+   exceptions
+
+clean up weight and max_depth argument parsing, it's a bit all over
+   the place
+
+feature idea: make a weight_fcd_of (perhaps named differently) which allows
+   you to determine the weight for a given rule depending on the depth
+   of another rule. this is handy if you have some higher rule method
+   which calls another rule method which has several choices, and you
+   want the choice to be contingent on the higher method's depth.
+
