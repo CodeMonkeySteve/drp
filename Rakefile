@@ -1,8 +1,6 @@
-
 require 'rubygems'
-Gem::manage_gems
-require 'rake/gempackagetask'
-require 'rake/rdoctask'
+require 'rubygems/package_task'
+require 'rdoc/task'
 require 'rake/testtask'
 require 'rake/contrib/sshpublisher'
 
@@ -41,7 +39,6 @@ spec = Gem::Specification.new do |s|
 #  s.autorequire = PROJECT_NAME
   s.files = PKG_FILES
 
-  s.has_rdoc = true
   s.rdoc_options = s.rdoc_options + RDOC_OPTIONS
   s.extra_rdoc_files = RDOC_FILES
 
@@ -59,7 +56,7 @@ end
 task :default => [:package]
 
 # creates :package and :gem tasks
-Rake::GemPackageTask.new(spec) do |pkg|
+Gem::PackageTask.new(spec) do |pkg|
   pkg.need_zip = true
   pkg.need_tar = true
 end
